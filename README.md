@@ -1,0 +1,12 @@
+# Neural-Networks-Using-Forest-Fires-Dataset
+This code is an example of how to perform a grid search with cross-validation in Keras to tune the hyperparameters of a neural network model. The goal is to find the optimal combination of hyperparameters that result in the best performance in terms of accuracy on a binary classification problem.
+
+The code starts by importing the necessary libraries such as pandas, numpy, keras, scikit-learn, and matplotlib. It then reads in a CSV file containing data on forest fires and preprocesses the data. The 'size_category' column is converted from categorical values to binary values (1 for 'large' and 0 for 'small') for binary classification. The 'month' and 'day' columns are also converted to categorical variables and then encoded using label encoding to convert the string values into numerical values. The data is then split into training and testing sets, and the training data is scaled using StandardScaler.
+
+Next, a function called create_model is defined which creates a neural network model with two hidden layers, using the specified hyperparameters. The function takes three parameters, neuron1, neuron2, and learning_rate, which specify the number of neurons in the first and second hidden layers and the learning rate of the optimizer, respectively. The model uses the Adam optimizer, binary cross-entropy loss function, and accuracy as the evaluation metric.
+
+A KerasClassifier wrapper is then created for the model, which allows the model to be used with scikit-learn's GridSearchCV function. Grid search is performed using the GridSearchCV function, which takes the KerasClassifier model and a dictionary of hyperparameters to search over. In this example, the hyperparameters searched over are neuron1, neuron2, batch_size, epochs, and learning_rate. KFold cross-validation is used to evaluate the performance of each combination of hyperparameters, and the best combination of hyperparameters is returned.
+
+The results of the grid search are then printed, including the best score achieved and the best set of hyperparameters. Finally, a plot of the mean test scores and standard deviations for each combination of hyperparameters is generated using matplotlib.
+
+Overall, this code demonstrates how to perform hyperparameter tuning with Keras and scikit-learn using a grid search with cross-validation. This technique can be useful for finding the optimal set of hyperparameters for a neural network model on a given dataset, which can lead to improved performance on a binary classification problem.
